@@ -4,6 +4,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.routes.js"
+import messageRoutes from "./routes/message.routes.js"
 import connectToMongoDB from "./db/connectToMongoDB.js";
 
 dotenv.config();
@@ -21,6 +22,8 @@ app.use(express.json());   // to parse the incoming request with json payloads (
 // THis look ugly so we use middleware for this and us something like
 
 app.use("/api/auth",authRoutes)
+app.use("/api/messages",messageRoutes)
+
 
 
 
