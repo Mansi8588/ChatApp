@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import authRoutes from "./routes/auth.routes.js"
 import messageRoutes from "./routes/message.routes.js"
 import connectToMongoDB from "./db/connectToMongoDB.js";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 const PORT = process.env.PORT || 5000;
@@ -18,7 +19,7 @@ app.use(express.json());   // to parse the incoming request with json payloads (
 //   res.send("hello world!");
 // });
 
-
+app.use(cookieParser())  // call so that able to access cookies
 // THis look ugly so we use middleware for this and us something like
 
 app.use("/api/auth",authRoutes)
